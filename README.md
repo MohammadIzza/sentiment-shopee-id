@@ -1,42 +1,76 @@
-# Proyek Analisis Sentimen
+# Analisis Sentimen Ulasan Aplikasi Shopee Indonesia
 
-Paket ini disusun untuk memenuhi submission proyek analisis sentimen dengan pendekatan yang aman dan realistis:
+Repositori ini berisi kode dan dokumentasi untuk analisis sentimen pada ulasan aplikasi Shopee Indonesia di Google Play Store menggunakan pendekatan machine learning (TF-IDF + Logistic Regression, LinearSVC) dan deep learning (IndoBERT).
 
-- **Sumber data**: scraping ulasan aplikasi **Shopee Indonesia** dari Google Play Store
-- **Jumlah target data**: minimal **10.000** review
-- **Jumlah kelas**: **3 kelas** (`negative`, `neutral`, `positive`)
-- **3 percobaan skema pelatihan**:
-  1. TF-IDF + Logistic Regression
-  2. TF-IDF + LinearSVC
-  3. IndoBERT fine-tuning (deep learning)
+---
 
-## Struktur Folder
+## Deskripsi Proyek
+Studi ini bertujuan membangun sistem analisis sentimen yang andal terhadap ulasan pengguna aplikasi Shopee Indonesia. Data dikumpulkan melalui proses scraping, kemudian diproses, dilabeli, dan digunakan untuk pelatihan serta evaluasi model.
 
-```bash
+Target utama: akurasi minimal 85% pada data pengujian.
+
+## Struktur Direktori
+```
 sentiment_submission/
-├── data/
-├── models/
-├── scraping_google_play.py
-├── training_sentiment_analysis.ipynb
-├── requirements.txt
-└── README.md
+├── data/                # Dataset hasil scraping dan labeling
+├── models/              # Model hasil pelatihan
+├── scraping_google_play.py  # Script scraping data
+├── training_sentiment_analysis.ipynb  # Notebook pelatihan model
+├── requirements.txt     # Daftar dependensi
+└── README.md            # Dokumentasi proyek
 ```
 
-## Topik yang Diangkat
+## Panduan Penggunaan
 
-**Analisis sentimen ulasan aplikasi Shopee Indonesia di Google Play Store.**
+1. Instalasi dependensi:
+	```bash
+	pip install -r requirements.txt
+	```
 
-Topik ini aman, tidak sensitif, dan mudah dijelaskan dalam laporan karena review aplikasi berisi opini langsung pengguna.
+2. Jalankan proses scraping:
+	```bash
+	python scraping_google_play.py
+	```
+	Output:
+	- data/shopee_playstore_raw.csv
+	- data/shopee_playstore_labeled.csv
 
-## Mapping Label
+3. Jalankan pelatihan dan evaluasi model:
+	- Buka dan jalankan seluruh cell pada `training_sentiment_analysis.ipynb`.
 
-Label dibentuk dari rating bintang:
+## Catatan
+- Notebook pelatihan memuat seluruh tahapan: preprocessing, EDA, pelatihan, evaluasi, dan inference.
+- Untuk eksperimen IndoBERT, disarankan menggunakan Google Colab.
+- Parameter aplikasi dapat diubah pada variabel `APP_ID` di `scraping_google_play.py`.
 
-- **1–2** → `negative`
-- **3** → `neutral`
-- **4–5** → `positive`
+
+Informasi lebih lanjut dan narasi lengkap dapat dilihat pada file `deskripsi.md`.
+# Sentiment Analysis Shopee Indonesia
+
+Analisis sentimen ulasan aplikasi Shopee Indonesia di Google Play Store menggunakan TF-IDF, LinearSVC, dan IndoBERT.
+
+## Deskripsi
+Proyek ini melakukan scraping data ulasan aplikasi Shopee Indonesia dari Google Play Store, melakukan preprocessing, pelabelan berdasarkan rating, dan pelatihan model analisis sentimen dengan tiga pendekatan:
+1. TF-IDF + Logistic Regression
+2. TF-IDF + LinearSVC
+3. IndoBERT fine-tuning
+
+Target utama: akurasi minimal 85% pada data testing.
+
+## Struktur Folder
+- data/: Dataset hasil scraping dan labeling
+- models/: Model hasil pelatihan
+- scraping_google_play.py: Script scraping data
+- training_sentiment_analysis.ipynb: Notebook pelatihan model
+- requirements.txt: Daftar dependensi
 
 ## Cara Menjalankan
+1. Jalankan scraping: `python scraping_google_play.py`
+2. Jalankan pelatihan dan evaluasi model di notebook `training_sentiment_analysis.ipynb`
+
+---
+
+> Untuk detail narasi, lihat narasi_submission_template.md
 
 ### 1. Install dependensi
 ```bash

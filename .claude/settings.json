@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c ':*)",
+      "Bash(python -c \"import imblearn; print\\(imblearn.__version__\\)\")",
+      "Bash(python -m jupyter kernelspec list)",
+      "Bash(python -m ipykernel install --user --name python3)",
+      "Bash(python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=600 --ExecutePreprocessor.kernel_name=python3 training_sentiment_analysis.ipynb)"
+    ]
+  }
+}

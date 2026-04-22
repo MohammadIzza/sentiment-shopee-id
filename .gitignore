@@ -1,0 +1,37 @@
+# .gitignore
+
+# Data dan model
+/data/
+/models/
+
+# Virtual environment
+.venv/
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment & secrets
+.env
+.env.*
+
+# Lain-lain
+*.log
+*.bak
+*.swp
+*.tmp
+project.json
